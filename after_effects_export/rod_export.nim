@@ -1273,9 +1273,9 @@ proc getLayerActiveAtTimeAnimationForMarker(layer: Layer, marker: Marker, result
     var timeStep = 1.0 / fps;
     var sampledPropertyValues = newJArray()
 
-    var dEndTime = animationEndTime - 0.0001;
+    var dEndTime = animationEndTime - timeStep;
     var s = animationStartTime
-    while s < dEndTime:
+    while s <= dEndTime:
         sampledPropertyValues.add(%layer.activeAtTime(s))
         s += timeStep
 
